@@ -1,2 +1,2 @@
 # study-CDK
- AWS CDK学習用９９９
+ AWS CDK学習用
