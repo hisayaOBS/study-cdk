@@ -2,7 +2,7 @@
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { StudyCdkStack } from '../lib/study_cdk-stack';
-import { config } from config';
+import * as config from 'config';
 
 const app = new cdk.App();
 new StudyCdkStack(app, 'StudyCdkStack', {
