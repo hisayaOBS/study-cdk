@@ -22,26 +22,24 @@ export class Subnet extends Resource {
 
   public createResource(scope: cdk.Construct) {
     // Publicサブネット
-    this.public1a = new PublicSubnet(scope, 'subnetPublic', {
+    this.public1a = new PublicSubnet(scope, 'subnetPublic1a', {
       availabilityZone: 'ap-northeast-1a',
       vpcId: this.vpcId,
       cidrBlock: '10.0.1.0/24',
     });
+    // IGWへアタッチ（パブリックサブネット=IGWアタッチ必須なため）
     this.public1a.addDefaultInternetRoute(
       this.internetGateway.internetGateway.ref,
       this.internetGateway.gatewayAttachment,
     );
 
     // Privateサブネット
-    // this.database1a = new PublicSubnet(scope, 'subnetPrivate', {
-    //   availabilityZone: 'ap-northeast-1a',
-    //   vpcId: this.vpcId,
-    //   cidrBlock: '10.0.2.0/24',
-    // });
-    // this.database1a.addDefaultInternetRoute(
-    //   this.internetGateway.internetGateway.ref,
-    //   this.internetGateway.gatewayAttachment,
-    // );
+    this.database1a = new PrivateSubnet(scope, 'subnetPrivate1a', {
+      availabilityZone: 'ap-northeast-1a',
+      vpcId: this.vpcId,
+      cidrBlock: '10.0.2.0/24',
+    });
+    // NATインスタンスへ関連のルート追加はec2.tsにて記載
 
   }
 }

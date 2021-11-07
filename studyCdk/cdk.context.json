@@ -3,5 +3,9 @@
     "ap-northeast-1a",
     "ap-northeast-1c",
     "ap-northeast-1d"
-  ]
+  ],
+  "hosted-zone:account=189951751703:domainName=yell-automation.cf:region=ap-northeast-1": {
+    "Id": "/hostedzone/Z02513093DZC4T780B48T",
+    "Name": "yell-automation.cf."
+  }
 }
